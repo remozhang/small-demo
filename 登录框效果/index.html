@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录框效果</title>
+	<script type="text/javascript" src="jq.js"></script>
+	<script type="text/javascript">
+	$(function() {
+    	$("#accounts").focus(function() {
+    		if ($(this).val() == this.defaultValue) {
+    			$(this).val("");
+    		}
+    	});
+    	$("#accounts").blur(function() {
+    		if ($(this).val() == "") {
+    			$(this).val(this.defaultValue);
+    		}
+    	});
+    	$("#password").focus(function() {
+    		if ($(this).val() == this.defaultValue) {
+    			$(this).val("");
+    		}
+    	});
+    	$("#password").blur(function() {
+    		if ($(this).val() == "") {
+    			$(this).val(this.defaultValue);
+    		}
+    	});
+    })
+	</script>
+</head>
+<body>
+	<input type="text" id="accounts" value="请输入帐号"></input>
+	<input type="text" id="password" value="请输入密码"></input>
+	<input type="button" value="登陆"></input>
+</body>
+</html>
