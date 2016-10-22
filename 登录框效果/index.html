@@ -26,6 +26,8 @@
     			$(this).val(this.defaultValue);
     		}
     	});
+    	$("#single :last-child").attr("selected",true)
+        $("#haha").attr("checked","checked")
     })
 	</script>
 </head>
@@ -33,5 +35,11 @@
 	<input type="text" id="accounts" value="请输入帐号"></input>
 	<input type="text" id="password" value="请输入密码"></input>
 	<input type="button" value="登陆"></input>
+	<select id="single">
+		<option >选择1号</option>
+		<option >选择2号</option>
+		<option >选择3号</option>
+	</select>
+    <input type="checkbox"  id="haha">
 </body>
 </html>
