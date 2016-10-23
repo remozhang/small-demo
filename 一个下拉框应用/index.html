@@ -5,8 +5,38 @@
 	<title>一个下拉框应用</title>
 	<script type="text/javascript" src="jq.js"></script>
 	<script type="text/javascript">
-		
-	</script>
+		$(function(){
+			// 选中添加到右边
+			$("#add").click(function() {
+				var $options = $("#select1 option:selected");
+                var $remove = $options.remove();
+				$("#select2").append($remove)
+			})
+			// $("#add").click(function() {
+			// 	var $options = $("#select1 option:selected");
+			// appendTo方法可以将删除和追加合并
+			// 	$options.appendTo("#select2")
+			// })
+
+
+   //          // 全部添加到右边
+			$("#add_all").click(function() {
+				var $remove_all = $("#select1 option").remove();
+				$("#select2").append($remove_all);
+			})
+			// $("#add_all").click(function() {
+			// 	var $options = $("#select1 option");
+   //              $options.appendTo("#select2")
+			// })
+
+
+			// 双击某个选项将其添加给对方
+			$("#select1").dblclick(function() {
+				var $options = $("#select1 option:selected");
+				$options.appendTo("#select2");
+			})
+		})	
+	</script>	
 </head>
 <body>
 	<div class="centent">
