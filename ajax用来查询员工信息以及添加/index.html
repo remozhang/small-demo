@@ -31,43 +31,138 @@ body,input,button,select,h1 {
 	<input type="text" id="staffJob"></input><br>
 	<button id="save">保存</button>
 	<p id="createResult"></p>
+<script type="text/javascript" src="jq.js"></script>
 <script>
-document.getElementById("search").onclick = function(){
-	//发送Ajax查询请求并处理
-	var request = new XMLHttpRequest();
-	request.open("GET","service.php?number="+document.getElementById("keyword").value);
-	request.send();
-	request.onreadystatechange = function(){
-		if (request.readyState === 4) {
-			if (request.status === 200) {
-				document.getElementById("searchResult").innerHTML = request.responseText
-			}else{
-				alert("发生错误："+request.status);
-			}
-		}
-	}
-}
+//文档格式
+// document.getElementById("search").onclick = function(){
+// 	//发送Ajax查询请求并处理
+// 	var request = new XMLHttpRequest();
+// 	request.open("GET","service.php?number="+document.getElementById("keyword").value);
+// 	request.send();
+// 	request.onreadystatechange = function(){
+// 		if (request.readyState === 4) {
+// 			if (request.status === 200) {
+// 				document.getElementById("searchResult").innerHTML = request.responseText
+// 			}else{
+// 				alert("发生错误："+request.status);
+// 			}
+// 		}
+// 	}
+// }
 
 
-document.getElementById("save").onclick = function() {
-	var request = new XMLHttpRequest();
-	request.open("POST","service.php");
-	var data = "name=" +document.getElementById("staffName").value
-				+"&number="+document.getElementById("staffNumber").value
-				+"&sex="+document.getElementById("staffSex").value
-				+"&job="+document.getElementById("staffJob").value;
-	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
-	request.send(data);
-	request.onreadystatechange = function(){
-		if (request.readyState === 4) {
-			if (request.status === 200) {
-				document.getElementById("createResult").innerHTML = request.responseText
-			}else {
-				alert("发生错误："+request.status)
+// document.getElementById("save").onclick = function() {
+// 	var request = new XMLHttpRequest();
+// 	request.open("POST","service.php");
+// 	var data = "name=" +document.getElementById("staffName").value
+// 				+"&number="+document.getElementById("staffNumber").value
+// 				+"&sex="+document.getElementById("staffSex").value
+// 				+"&job="+document.getElementById("staffJob").value;
+// 	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+// 	request.send(data);
+// 	request.onreadystatechange = function(){
+// 		if (request.readyState === 4) {
+// 			if (request.status === 200) {
+// 				document.getElementById("createResult").innerHTML = request.responseText
+// 			}else {
+// 				alert("发生错误："+request.status)
+// 			}
+// 		}
+// 	}
+// }
+
+// //json格式
+// document.getElementById("search").onclick = function(){
+// 	//发送Ajax查询请求并处理
+// 	var request = new XMLHttpRequest();
+// 	request.open("GET","serverjson.php?number="+document.getElementById("keyword").value);
+// 	request.send();
+// 	request.onreadystatechange = function(){
+// 		if (request.readyState === 4) {
+// 			if (request.status === 200) {
+// 				var data = JSON.parse(request.responseText)
+// 				if (data.success) {
+// 					document.getElementById("searchResult").innerHTML = data.msg;
+// 				}else {
+// 					document.getElementById("searchResult").innerHTML = "出现错误：" + data.msg;
+// 				}
+// 			}else{
+// 				alert("发生错误："+request.status);
+// 			}
+// 		}
+// 	}
+// }
+
+// document.getElementById("save").onclick = function() {
+// 	var request = new XMLHttpRequest();
+// 	request.open("POST","serverjson.php");
+// 	var data = "name=" +document.getElementById("staffName").value
+// 				+"&number="+document.getElementById("staffNumber").value
+// 				+"&sex="+document.getElementById("staffSex").value
+// 				+"&job="+document.getElementById("staffJob").value;
+// 	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+// 	request.send(data);
+// 	request.onreadystatechange = function(){
+// 		if (request.readyState === 4) {
+// 			if (request.status === 200) {
+// 				var data = JSON.parse(request.responseText);
+// 				if (data.success) {
+// 					document.getElementById("createResult").innerHTML = data.msg;
+// 				}else{
+// 					document.getElementById("createResult").innerHTML = "出错误：" + data.msg;
+// 				}
+// 			}else {
+// 				alert("发生错误："+request.status)
+// 			}
+// 		}
+// 	}
+// }
+
+
+//JQ方法实现
+$(document).ready(function(){
+	$("#search").click(function(){
+		$.ajax({
+			type: "GET",
+			url: "serverjson.php?number=" + $("#keyword").val(),
+            dataType: "json",
+            success: function(data){
+            	if(data.success) {
+            		$("#searchResult").html(data.msg);
+            	}else {
+	            	$("#searchResult").html("出现错误："+data.msg);
+            	}
+            },
+            error: function(jqXHR){
+            	alert("发生错误：" + jqXHR.status);
+            }
+
+		})
+	})
+	$("#save").click(function() {
+		$.ajax({
+			type: "POST",
+			url: "serverjson.php",
+			dataType: "json",
+			data: {
+				name:$("#staffName").val(),
+				number:$("#staffNumber").val(),
+				sex:$("#staffSex").val(),
+				job:$("#staffJob").val(),
+			},                
+			success: function(data) {
+				if (data.success) {
+					$("#createResult").html(data.msg);
+				}else {
+					$("#createResult").html("出现错误：" + data.msg)
+				}
+			},
+			error: function(jqXHR){
+				alert("发生错误：" + jqXHR.status)
 			}
-		}
-	}
-}
+		})
+	})
+})
 </script>
 </body>
 </html>
