@@ -42,7 +42,17 @@
 			if (i%4==1) {
 				p = 0;
 			}
-			tmpl += '<li style="width:'+picWidth+'px;height:'+picWidth+'px;padding-top:'+padding+'px;padding-left:'+p+'px"><img src="'+imgSrc+'"</li>';
+			tmpl += '<li style="width:'+picWidth+'px;height:'+picWidth+'px;padding-top:'+padding+'px;padding-left:'+p+'px"><img src="'+imgSrc+'"></li>';
+			// 用canvas渲染图片好像有差
+			// var imageObj = new Image();
+			// imageObj.index = i;
+			// imageObj.src = imgSrc;
+			// imageObj.onload = function() {
+			// 	var cvs = $("#cvs_"+this.index)[0].getContext('2d');
+			// 	cvs.width = this.width;
+			// 	cvs.height = this.height;
+			// 	cvs.drawImage(this,0,0);
+			// }
 		}
 		$("#container").html(tmpl);
 	}
