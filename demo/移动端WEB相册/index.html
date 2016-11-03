@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动web相册</title>
+	<meta name="vierport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="zepto.min.js"></script>
+	<style type="text/css">
+		blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul,img {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-color: black;
+		}
+		ul {
+			list-style: none;
+		}
+		li {
+			float: left;
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+		}
+	</style>
+
+</head>
+<body>
+	<ul class="img-container" id="container">
+	</ul>
+<script>
+	var total = 17;
+	var zWin = $(window);
+	var render = function() {
+		var padding = 2;
+		var winWidth = zWin.width();
+		var picWidth = Math.floor((winWidth-padding*3)/4);
+		var tmpl = "";
+		for (var i = 1;i <= total;i++){
+			var imgSrc = 'images/'+i+'.jpg';
+			var p = padding;
+			if (i%4==1) {
+				p = 0;
+			}
+			tmpl += '<li style="width:'+picWidth+'px;height:'+picWidth+'px;padding-top:'+padding+'px;padding-left:'+p+'px"><img src="'+imgSrc+'"</li>';
+		}
+		$("#container").html(tmpl);
+	}
+	render();
+</script>
+</body>
+</html>
