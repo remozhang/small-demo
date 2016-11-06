@@ -5,6 +5,7 @@
 	<title>移动web相册</title>
 	<meta name="vierport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="zepto.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="animate.css">
 	<style type="text/css">
 		blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul,img {
 			margin: 0;
@@ -22,12 +23,22 @@
 			height: 100px;
 			overflow: hidden;
 		}
+		.large {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+		}
 	</style>
-
 </head>
 <body>
 	<ul class="img-container" id="container">
 	</ul>
+	<div class="large" id="large_container" style="display: none" >
+		<img id="large_img">
+	</div>
 <script>
 	var total = 17;
 	var zWin = $(window);
@@ -42,7 +53,7 @@
 			if (i%4==1) {
 				p = 0;
 			}
-			tmpl += '<li style="width:'+picWidth+'px;height:'+picWidth+'px;padding-top:'+padding+'px;padding-left:'+p+'px"><img src="'+imgSrc+'"></li>';
+			tmpl += '<li data-id="'+i+'" class="animated bounceIn" style="width:'+picWidth+'px;height:'+picWidth+'px;padding-top:'+padding+'px;padding-left:'+p+'px"><img src="'+imgSrc+'"></li>';
 			// 用canvas渲染图片好像有差
 			// var imageObj = new Image();
 			// imageObj.index = i;
@@ -57,6 +68,36 @@
 		$("#container").html(tmpl);
 	}
 	render();
+	var wImage = $('#large_img')
+	var loadImg = function(id) {
+        $("#large_container").css({
+        	width: zWin.width(),
+        	height: zWin.height()
+        }).show();
+        var imgsrc = 'images/'+id+'.large.jpg';
+        var imageObj = new Image();
+        imageObj.onload = function() {
+        	var w = this.width;
+        	var h = this.height;
+        	var winWidth = zWin.width();
+        	var winHeight = zWin.height();
+        	var realw = winHeight*w/h;
+        	var paddingLeft = parseInt((winWidth-realw)/2);
+        	var realh = winWidth*h/w;
+        	var paddingTop = parseInt((winHeight-realh)/2);
+        	if (h/w>1.2) {
+		        wImage.attr('src',imgsrc).css('height',winHeight).css('padding-left',paddingLeft);     
+        	}else{
+                wImage.attr('src',imgsrc).css('width',winWidth).css('padding-top',paddingTop);  
+        	}
+        }
+        imageObj.src = imgsrc;
+	}
+
+	$('#container').delegate('li', 'tap', function(){
+		var _id = $(this).attr('data-id');
+		loadImg(_id);
+	});
 </script>
 </body>
 </html>
