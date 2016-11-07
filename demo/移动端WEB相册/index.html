@@ -36,12 +36,15 @@
 <body>
 	<ul class="img-container" id="container">
 	</ul>
-	<div class="large" id="large_container" style="display: none" >
+	<div class="large animated fadeIn" id="large_container" style="display: none" >
 		<img id="large_img">
 	</div>
 <script>
-	var total = 17;
+	var total = 17;      //总图片数
 	var zWin = $(window);
+
+
+	//渲染小图
 	var render = function() {
 		var padding = 2;
 		var winWidth = zWin.width();
@@ -68,8 +71,11 @@
 		$("#container").html(tmpl);
 	}
 	render();
-	var wImage = $('#large_img')
-	var loadImg = function(id) {
+
+	// 大图用js控制宽高比显示
+	var wImage = $('#large_img');
+	var domImage = wImage[0];
+	var loadImg = function(id,callback) {
         $("#large_container").css({
         	width: zWin.width(),
         	height: zWin.height()
@@ -85,18 +91,59 @@
         	var paddingLeft = parseInt((winWidth-realw)/2);
         	var realh = winWidth*h/w;
         	var paddingTop = parseInt((winHeight-realh)/2);
+        	wImage.css('width','auto').css('height','auto');
+        	wImage.css('padding-left',"0px").css('padding-top','0px');
         	if (h/w>1.2) {
 		        wImage.attr('src',imgsrc).css('height',winHeight).css('padding-left',paddingLeft);     
         	}else{
                 wImage.attr('src',imgsrc).css('width',winWidth).css('padding-top',paddingTop);  
         	}
+	        callback&&callback();
         }
         imageObj.src = imgsrc;
 	}
 
+
+    var cid;            // 当前小图的id
+    // 绑定事件代理，点击小图load大图
 	$('#container').delegate('li', 'tap', function(){
-		var _id = $(this).attr('data-id');
+		var _id = cid = $(this).attr('data-id');
 		loadImg(_id);
+	});
+
+
+    
+	var removeRight = function(){
+    	wImage.removeClass('animated bounceInRight');
+    	domImage.removeEventListener('webkitAnimationEnd',removeRight,false);
+    }
+	var removeLeft = function(){
+    	wImage.removeClass('animated bounceInLeft');
+    	domImage.removeEventListener('webkitAnimationEnd',removeLeft,false);
+    }
+    // 点击大图时的交互，包括点击返回，左滑动，右滑动交互
+	$('#large_container').tap(function(){
+		$(this).hide();
+	}).swipeLeft(function(){
+		cid++;
+		if (cid>total) {
+			cid = total;
+		}else{
+			loadImg(cid,function(){
+				domImage.addEventListener('webkitAnimationEnd',removeRight,false);   //取消动画队列
+				wImage.addClass('animated bounceInRight');
+			});
+		}
+	}).swipeRight(function(){
+		cid--;
+		if (cid<1) {
+			cid=1;
+		}else{
+			loadImg(cid,function(){
+				domImage.addEventListener('webkitAnimationEnd',removeLeft,false);   //取消动画队列
+				wImage.addClass('animated bounceInLeft');
+			});
+		}
 	});
 </script>
 </body>
