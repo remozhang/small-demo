@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+  <head>
+  <meta charset="UTF-8">
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      class MyTitle extends React.Component{
+        constructor(...args){
+          super(...args);
+          this.state = {
+            name : "zhenglei",
+            isClicked : false
+          }
+        }
+        handleClick(e) {
+          let name = this.state.name;
+          let isClicked = !this.state.isClicked;
+          this.setState({
+            isClicked : isClicked,
+            name : isClicked? "张雷":"zhanglei"
+          })
+        }
+        render(){
+          return (
+              <p onClick={this.handleClick.bind(this)}>Hello,{this.state.name}</p>)
+        }
+      }
+      ReactDOM.render(
+        <MyTitle/>,
+        document.getElementById("example"))
+    </script>
+  </body>
+</html>

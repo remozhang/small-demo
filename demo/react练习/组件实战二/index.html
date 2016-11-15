@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+  <head>
+  <meta charset="UTF-8">
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      class MyTitle extends React.Component {
+        constructor(...args) {
+          super(...args);
+          this.state = {
+            text: 'World',
+            isClicked: false
+          };
+        }
+
+        handleClick() {
+          let d = new Date();
+          let time = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+"星期"+d.getDay();
+          let isClicked = !this.state.isClicked;
+          this.setState({
+            isClicked : isClicked,
+            text: isClicked? time:'world'
+          });
+        }
+
+        render() {
+          return <h1 onClick={this.handleClick.bind(this)}>
+            {'Hello ' + this.state.text}
+          </h1>;
+        }
+      };
+
+      ReactDOM.render(
+        <MyTitle/>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
