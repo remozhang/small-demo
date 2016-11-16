@@ -43,10 +43,16 @@
             return <span>Error: {this.state.error}</span>;
           } else {
             console.log(this.state.data);
+            var projects = this.state.data.items;
+            var results = [];
+            projects.forEach(p => {
+              var item = <li>{p.name}</li>;
+                results.push(item);
+            })
             return (
               <div>
                 <p>API 数据获取成功</p>
-                <p>改写代码，将结果显示在这里</p>
+                <p>{results}</p>
               </div>
             );
           }
