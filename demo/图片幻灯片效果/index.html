@@ -17,9 +17,120 @@
 			/*字体抗锯齿*/
 			-webkit-font-smoothing: antialiased;
 		}
+
+		.slider .main .main-i,
+		.slider .main,
+		.slider {
+            width: 100%;
+            height: 400px;
+            position: relative;
+		}
+		/*幻灯片区域*/
+		.slider .main {
+            overflow: hidden;
+		}
+		/*每个幻灯片的样式*/
+		.slider .main .main-i{
+
+		}
+		.slider .main .main-i img{
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 1;
+		}
+		.slider .main .main-i .caption{
+			position: absolute;
+			right: 50%;
+			top: 30%;
+			z-index: 9;
+		}
+		.slider .main .main-i .caption h2{
+			font-size: 40px;
+			line-height: 50px;
+			color: #B5B5B5;
+			text-align: right;
+		}
+		.slider .main .main-i .caption h3{
+			font-size: 70px;
+			line-height: 70px;
+			color: #000;
+			text-align: right;
+			font-family: "Open Sans Condensed";
+		}
+
+		/*控制按钮区域*/
+		.slider .ctrl {
+            width: 100%;
+            height: 13px;
+            line-height: 13px;
+            position: absolute;
+            bottom: -13px;
+            text-align: center;
+		}
+		.slider .ctrl .ctrl-i {
+			position: relative;
+			display: inline-block;
+			width: 150px;
+			height: 13px;
+			box-shadow: 0 1px 1px rgba(0,0,0,.3);
+			background-color: #666;
+		}
+		.slider .ctrl .ctrl-i img{
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 50px;
+			z-index: 2;
+			opacity: 0;
+			-webkit-transition:all .2s;
+		}
+		/*hover到控制按钮*/
+		.slider .ctrl .ctrl-i:hover {
+			background-color: #F0F0F0;
+		}
+		.slider .ctrl .ctrl-i:hover img{
+			bottom: 13px;
+			-webkit-box-reflect: below 0px -webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				from(transparent),
+				color-stop(50%,transparent),
+				to(rgba(255,255,255,.3))
+			);
+			opacity: 1;
+		}
+		/*active 当前展现的状态*/
+		.ctrl-i_active{
+			background-color: #000;
+		}
+		.ctrl-i_active img{
+			opacity: 0;
+		}
 	</style>
 </head>
 <body>
-	
+	<div class="slider">
+		<div class="main">
+			<div class="main-i">
+				<div class="caption">
+					<h2>h2 caption</h2>
+					<h3>h3 caption</h3>
+				</div>
+				<img src="img/1.jpg"/>
+			</div>
+		</div>
+		<div class="ctrl">
+			<a href="javascript:;" class="ctrl-i ctrl-i_active">
+				<img src="img/1.jpg" >
+			</a><a href="javascript:;" class="ctrl-i">
+				<img src="img/1.jpg" >
+			</a><a href="javascript:;" class="ctrl-i">
+				<img src="img/1.jpg" >
+			</a>
+		</div>
+	</div>
 </body>
 </html>
