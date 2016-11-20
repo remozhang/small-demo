@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ajax</title>
+	<style>
+		button {
+			display: block;
+			padding: 8px 10px;
+			line-height: 1.4;
+			text-align: center;
+			cursor: pointer;
+			border-radius: 4px;
+			border: 1px solid transparent;
+			color: #fff;
+			background-color: #1aba9c;
+			font-size: 15px;
+		}
+		table {
+/*			display: none;*/
+		}
+		.table {
+			display: inline-block;
+			border-collapse: collapse;
+			margin: 10px autol
+		}
+		td,th {
+			border: 1px solid #356;
+			padding: 5px;
+			color: #456;
+		}
+
+	</style>
+	<script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	<button>点击获取服务器端数据</button>
+	<table>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>编号</th>
+				<th>年龄</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+			</tr>
+		</tbody>	
+	</table>
+	<script type="text/javascript">
+		$(function(){
+			// 通过绑定一次点击事件来获取数据
+			$("button").one("click",function(){
+				$("table").addClass('table');
+				$.get("http://cdn.gbtags.com/gblibraryassets/libid102/jsondata.jsp",
+					function(data){
+						for(var i=0;i<4;i++){
+							$.each(data[i],function(key,value){
+								var t=$("<td></td>").text(value);
+								$("tr").eq(i+1).append(t);
+							});
+						}
+					})
+			})
+		})
+	</script>
+</body>
+</html>
