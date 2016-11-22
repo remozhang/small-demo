@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flexbox准备练习三</title>
+	<style>
+		* {
+		  box-sizing: border-box;
+		}
+		.grid {
+		  position: relative; // for resize grip
+		  display: flex;
+		  flex-direction: row;
+		  flex-wrap: wrap;
+		  justify-content: flex-start;
+		  padding: 0 1%;
+		  background: yellow;
+		}
+		.item {
+		  min-height: 50px;
+		  margin: 0 1% 10px 1%;
+		  background: orange;
+		  border: 1px solid darkorange;
+		}
+		.max-3-col .item {
+		        @media (max-width: @screen-md-max) {
+		            // max 1 per row
+		            flex: 0 0 (100 / 1) - 2%;
+		        }
+		        @media (min-width: @screen-lg-min) {
+		            // max 2 per row
+		            flex: 0 0 (100 / 2) - 2%;
+		        }
+		        @media (min-width: @screen-xl-min) {
+		            // max 3 per row
+		            flex: 0 0 (100 / 3) - 2%;
+		        }
+		}
+		.max-4-col .item {
+		        @media (max-width: @screen-sm-max) {
+		            // max 1 per row
+		            flex: 0 0 (100 / 1) - 2%;
+		        }
+		        @media (min-width: @screen-md-min) {
+		            // max 2 per row
+		            flex: 0 0 (100 / 2) - 2%;
+		        }
+		        @media (min-width: @screen-lg-min) {
+		            // max 3 per row
+		            flex: 0 0 (100 / 3) - 2%;
+		        }
+		        @media (min-width: @screen-xl-min) {
+		            // max 4 per row
+		            flex: 0 0 (100 / 4) - 2%;
+		        }
+		}
+		.resize-grip {
+		  position: absolute;
+		  top: 0;
+		  right: 0;
+		  bottom: 0;
+		  width: 2px;
+		  background: blue;
+		  cursor: col-resize;
+		}
+
+		@screen-xs:                  480px;
+		@screen-xs-min:              @screen-xs;
+		@screen-sm:                  768px;
+		@screen-sm-min:              @screen-sm;
+		@screen-md:                  992px;
+		@screen-md-min:              @screen-md;
+		@screen-lg:                  1200px;
+		@screen-lg-min:              @screen-lg;
+		@screen-xl:                  1400px;
+		@screen-xl-min:              @screen-xl;
+		@screen-xs-max:              (@screen-sm-min - 1);
+		@screen-sm-max:              (@screen-md-min - 1);
+		@screen-md-max:              (@screen-lg-min - 1);
+	</style>
+</head>
+<body>
+	<div class="grid max-4-col">
+	  <div class="item">equal<br>height<br>boxes</div>
+	  <div class="item"></div>
+	  <div class="item"></div>
+	  <div class="item"></div>
+	  <div class="item"></div>
+	  <div class="item"></div>
+	  <div class="item"></div>
+	  <div class="item"></div>
+	  <div class="item"></div>
+	  <div class="item"></div>
+	  <div class="resize-grip"></div>
+	</div>
+</body>
+</html>
