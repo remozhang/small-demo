@@ -172,3 +172,95 @@ arr.forEach(function(x,index,a) {
 
 ---------------------------------------------------------------
 // array.prototype.map数组映射
+// 针对数组的所有成员进行统一操作
+var arr = [1,2,3];
+arr.map(function(x) {
+	return x+10;
+});//[11,12,13]
+arr;//[1,2,3]原数组未被修改
+
+--------------------------------------------------------------
+// Array.prototype.filter 数组过滤
+// 返回满足过滤条件的数组成员
+var arr = [1,2,3,4,5,6,7,8,9,10];
+arr.filter(function(x,index) {
+	return index % 3 === 0 || x >= 8;
+});//return [1,4,7,8,9,10]
+arr; //[1,2,3,4,5,6,7,8,9,10] 原数组未被修改
+
+--------------------------------------------------------------
+// Array.prototype.every&some数组判断
+// every只要数组成员中有一个不满足条件 就返回false 反之true
+var arr = [1,2,3,4,5];
+arr.every(function(x) {
+	return x < 10;
+}); //true
+
+arr.every(function(x) {
+	return x < 3;
+})//false
+
+// some只要数组成员中有一个满足条件 就返回true 反之false
+arr.some(function(x) {
+	return x === 3;
+});//true
+
+arr.some(function(x) {
+	return x === 100;
+});//false
+
+--------------------------------------------------------------------
+// Array.prototype.reduce&reduceRight 数组之间的两两操作
+//reduce 由左至右 进行数组成员之间的两辆操作
+
+//所有成员相加
+var arr = [1,2,3]
+var sum = arr.reduce(function(x,y) {
+	return x+y
+},0);//6
+arr;//[1,2,3]原数组未被修改
+
+// 找出成员中的最大值
+arr = [3,9,6];
+var max = arr.reduce(function(x,y) {
+	console.log(x + "|" + y);
+	return x > y ? x : y;
+});
+// 3|9
+// 9|6
+max; //9
+
+//reduceRight 由右至左 进行数组成员之间的两辆操作
+
+//找出成员中的最大值
+max = arr.reduceRight(function(x,y) {
+	console.log(x + "|" + y);
+	return x > y ? x : y;
+});
+// 6|9
+// 9|3
+max; //9
+
+-----------------------------------------------------------
+// Array.prototype.indexOf&lastIndexOf 数组检索
+var arr = [1,2,3,2,1];
+arr.indexOf(2); //1
+arr.indexOf(99); //-1,不存在返回-1
+arr.indexOf(1,1); //4,从位置1开始
+
+-----------------------------------------------------------
+// Array.isArray 判断是否为数组
+Array.isArray([]);//ture
+
+[] instanceOf Array; //true
+[].constryctor === Array; //true
+
+-------------------------------------------------------------
+字符串和数组
+// 字符串属于类数组元素，可以使用类似数组的方式去操作字符串
+var str = "hello world";
+str.charAt(0); //"h"
+str[1];//e
+
+Array.prototype.join.call(str,"_");
+//"h_e_l_l_o_ _w_o_r_l_d"
