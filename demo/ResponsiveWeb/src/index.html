@@ -5,16 +5,16 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>响应式开发</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<style type="text/css">
-	</style>
+    <link rel="stylesheet"  href="css/normalize.css">
+    <link rel="stylesheet"  href="css/main.css">
 </head>
 <body>
-<!--[if lte IE8]>
+<!--[if lte IE 8]>
 <p class="browserupgrade">您的浏览器版本老的可笑，请到<a href="http://browsehappy">这里</a>更新，以获取最佳的体验</p>
 <![endif]-->
 
 <header>
-	<nav>
+	<nav class="top">
 		<span class="tel">理财热线:400-888-8888</span>
 		<ul>
 			<li><a href="#">登录</a></li>
@@ -24,7 +24,7 @@
 			<li><a href="#">APP下载</a></li>
 		</ul>
 	</nav>
-	<nav>
+	<nav class="main">
 		<a href="#" class="brand"><img src="img/logo@1x.png" alt="回到首页"></a>
 		<ul>
 			<li><a href="#">首页</a></li>
@@ -81,12 +81,12 @@
 		</div>
 	</section>
 
-	<section class="notice">
-		<a href="#">最新公告:<span>2015-12-31</span>元旦起见业务受理及值班公告</a>
+	<section class="notice clearfix">
+		<a href="#"><span>2015-12-31</span>元旦起见业务受理及值班公告哈哈哈哈哈为什么找个工作这么难啊啊啊啊啊啊啊</a>
 		<a href="#" class="more">更多公告</a>
 	</section>
 
-	<section class="product">
+	<section class="product clearfix">
 		<h2>
 			固定期限产品
 			<em>甄选优秀基金</em>
@@ -94,15 +94,16 @@
 			<em>坐等收益</em>
 		</h2>
 
-		<div class="product-content">
-			<div class="item">
+		<div class="product-content ">
+			<div class="item clearfix">
 				<h3><em>3</em>个月</h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">3.50% <i>起</i></span></p>
 					<p>总成交金额:<span class="money">1880<i>万元</i></span></p>
 				</div>
 				<div class="buy"><a href="#">购买</a></div>
-			</div>			<div class="item">
+			</div>			
+			<div class="item clearfix">
 				<h3><em>3-6</em>个月</h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">3.60% <i>起</i></span></p>
@@ -110,7 +111,7 @@
 				</div>
 				<div class="buy"><a href="#">购买</a></div>
 			</div>
-			<div class="item">
+			<div class="item clearfix">
 				<h3><em>6-12</em>个月</h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">4.50% <i>起</i></span></p>
@@ -118,7 +119,7 @@
 				</div>
 				<div class="buy"><a href="#">购买</a></div>
 			</div>
-			<div class="item">
+			<div class="item clearfix">
 				<h3><em>12-24</em>个月</h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">5.60% <i>起</i></span></p>
@@ -126,7 +127,7 @@
 				</div>
 				<div class="buy"><a href="#">购买</a></div>
 			</div>
-			<div class="item">
+			<div class="item clearfix">
 				<h3><em>24</em>个月</h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">6.20% <i>起</i></span></p>
@@ -137,7 +138,7 @@
 		</div>
 	</section>
 
-	<section class="product">
+	<section class="product clearfix">
 		<h2>
 			债权/散标产品
 			<em>自主投资</em>
@@ -146,7 +147,7 @@
 		</h2>
 
 		<div class="product-content">
-			<div class="item">
+			<div class="item clearfix">
 				<h3><em>3</em>个月<i>日常生活消费</i></h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">4.90% <i>起</i></span></p>
@@ -154,7 +155,7 @@
 				</div>
 				<div class="buy"><a href="#">投标</a></div>
 			</div>			
-			<div class="item">
+			<div class="item clearfix">
 				<h3><em>5</em>个月<i>资金周转</i></h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">5.20% <i>起</i></span></p>
@@ -162,7 +163,7 @@
 				</div>
 				<div class="buy"><a href="#">投标</a></div>
 			</div>	
-			<div class="item">
+			<div class="item clearfix">
 				<h3><em>7</em>个月<i>个人消费</i></h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">5.90% <i>起</i></span></p>
@@ -170,7 +171,7 @@
 				</div>
 				<div class="buy"><a href="#">还款中</a></div>
 			</div>	
-			<div class="item">
+			<div class="item clearfix">
 				<h3><em>1</em>个月<i>日常生活消费</i></h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">4.90% <i>起</i></span></p>
@@ -178,7 +179,7 @@
 				</div>
 				<div class="buy"><a href="#">还款中</a></div>
 			</div>	
-			<div class="item">
+			<div class="item clearfix">
 				<h3><em>12</em>个月<i>资金周转</i></h3>
 				<div class="info">
 					<p>约定年化收益率:<span class="year-rate">4.90% <i>起</i></span></p>
@@ -190,7 +191,7 @@
 	</section>
 
 	<section class="footer">
-		<div class="footer-content">
+		<div class="footer-content clearfix">
 		    <p class="brand"></p>
 			<ul>
 				<li class="title">关于我们</li>
@@ -231,9 +232,9 @@
 		<li><span class="icon icon-vsjmfw">VerSign加密服务</span></li>
 		<li><span class="icon icon-wlgs">网络工商</span></li>
 		<li><span class="icon icon-rzcx">电子商务协会认证诚信网</span></li>
-		<li><span class="icon icon-gs">北京工商</span></li>
+		<li><span class="icon icon-gs">上海工商</span></li>
 	</ul>
-	<p>北京某互联网金融公司 版权所有 ® 2015-2016 </p>
+	<p>上海某互联网金融公司 版权所有 ® 2015-2016 </p>
 </footer>
 </body>
 </html>
