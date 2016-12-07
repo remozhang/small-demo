@@ -333,7 +333,7 @@ header .main ul li a:active {
 }
 /*滚动广告*/
 .ad{
-	display: none;
+	width: 100%;
 }
 
 /*平台公告*/
@@ -805,7 +805,7 @@ footer ul li .icon-gs {
 	width: 30px;
 	height: 30px;
 	margin-right: 0;
-	background: url(https://os.alipayobjects.com/rmsportal/lybcjqloSPJMAFg.png)no-repeat;
+	background: url("../img/cert2.png")no-repeat;
 	background-size: 30px;
 }
 
