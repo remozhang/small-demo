@@ -57,15 +57,27 @@
 	</section>
     
     <section class="ad">
-		<div id="owl-example" class="owl-carousel ">
+		<div class="owl-carousel owl-theme">
 			<div class="item">
-				<img src="img/ad001.png">
+				<picture>
+					<source srcset="img/ad001-l.png" media="(min-width:50em)">
+					<source srcset="img/ad001-m.png" media="(min-width:30.0625em)">
+					<img src="img/ad001.png" alt="2015年度报告">
+				</picture>
 			</div>
 			<div class="item">
-				<img src="img/ad002.png">
+				<picture>
+					<source srcset="img/ad002-l.png" media="(min-width:50em)">
+					<source srcset="img/ad002-m.png" media="(min-width:30.0625em)">
+					<img src="img/ad002.png" alt="新年抽奖">
+				</picture>
 			</div>
 			<div class="item">
-				<img src="img/ad003.png">
+				<picture>
+					<source srcset="img/ad003-l.png" media="(min-width:50em)">
+					<source srcset="img/ad003-m.png" media="(min-width:30.0625em)">
+					<img src="img/ad003.png" alt="新手专享红包">
+				</picture>
 			</div>
 		</div>
     </section>
@@ -241,8 +253,9 @@
 	<p>上海某互联网金融公司 版权所有 ® 2015-2016 </p>
 </footer>
 
-<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/jquery-3.1.0.min.js"></script>
 <script src="js/vendor/owl.carousel.min.js"></script>
+<script src="js/vendor/pictrue.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -332,9 +332,6 @@ header .main ul li a:active {
 	}
 }
 /*滚动广告*/
-.ad{
-	width: 100%;
-}
 
 /*平台公告*/
 .feature {
@@ -759,7 +756,7 @@ footer ul li .icon {
 	display: inline-block;
 	text-indent: -999rem;
 	margin-right: 1.5rem;
-	background: url(https://i.alipayobjects.com/e/201307/jebmKcbrh.png)no-repeat;
+	background: url("../img/cert1.png")no-repeat;
     background-size:466px 447px;
     overflow: hidden;
 }
