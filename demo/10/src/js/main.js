@@ -9,7 +9,7 @@ $(document).ready(function(){
 })
 
 
-// 根据屏幕大小选择合适的图片
+// 根据屏幕大小选择合适的图片			
 // $(function(){
 // 	function makeImageResponsive() {
 // 		var width = $(window).width();
@@ -25,4 +25,4 @@ $(document).ready(function(){
 // 	}
 
 // 	$(window).on("resize load",makeImageResponsive)
-// })
+// })								
