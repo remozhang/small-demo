@@ -1,5 +1,6 @@
 * {
 	-webkit-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	-webkit-transition: background .2s;
 	transition: background .2s;
@@ -26,8 +27,8 @@ h1 {
 	margin: 10px 0;
 }
 
-input, 
-.task-item, 
+input,
+.task-item,
 button,
 textarea,
 .task-detail-mask
@@ -76,7 +77,7 @@ button {
 .add-task button[type=submit],
  .task-item {
 	box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
-	
+
 }
 
 .add-task button[type=submit]:hover {
@@ -86,7 +87,7 @@ button {
 
 .task-item {
 	background: #fff;
-	color: #333; 
+	color: #333;
 	margin-bottom: 2px;
 	cursor: pointer;
 }
@@ -95,7 +96,7 @@ button {
 	background: #ddd;
 }
 
-.task-detail-mask, 
+.task-detail-mask,
 .task-detail {
 	position: absolute;
 }
