@@ -1,5 +1,5 @@
 ;(function() {
-	
+
 	var $form_add_task = $('.add-task')
 	, new_task = {}
 	, task_list = {}
@@ -18,7 +18,7 @@
 		add_task(new_task);
 		console.log(task_list);
 
-	})	
+	})	;
 
 
 	function add_task(new_task) {
