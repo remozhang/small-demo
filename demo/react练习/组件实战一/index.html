@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html >
   <head>
+  <title>haha </title>
   <meta charset="UTF-8">
     <script src="../build/react.js"></script>
     <script src="../build/react-dom.js"></script>
@@ -20,6 +21,7 @@
         handleClick() {
           let name = this.state.name;
           let isClicked = !this.state.isClicked;
+          console.log(this);
           this.setState({
             isClicked : isClicked,
             name : isClicked? "张雷":"zhanglei"
