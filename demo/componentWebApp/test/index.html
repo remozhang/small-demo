@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>componentWebApp</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#h5 {
+			margin: 0;
+			padding: 0;
+		}
+
+		.page {
+			width: 50%;
+			height: 50px;
+			border-bottom: 1px solid #666;
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="h5">
+		<div class="page section" id="page1">
+			<div class="component logo">logo</div>
+			<div class="component slogn">slogn</div>
+			<input type="button" value="哈哈">
+		</div>
+		<div class="page section" id="page2">
+			<div class="component description">description</div>
+		</div>
+		<div class="page section" id="page3">
+			<div class="component footer">footer</div>
+		</div>
+	</div>
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/jqueryui/jquery-ui.min.js"></script>
+	<script src="../node_modules/fullpage.js/dist/jquery.fullpage.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#h5").fullpage({
+				sectionsColor: ["#564","#000","#561"],
+				"loopBottom": true,
+				// onLeave: function( index, nextIndex, direction ) {
+				// 	debugger;
+				// },
+				// afterLoad: function( index, nextIndex, direction ) {
+				// 	debugger;
+				// }
+			});
+			$(".page").on("onLeave",function() {
+				console.log($(this).attr("id"))
+			})
+		})
+	</script>
+</body>
+</html>
