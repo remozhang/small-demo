@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>H5ComponentBase</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #000;
+			font-size: 12px;
+		}
+		.iphone {
+			width: 340px;
+			height: 540px;
+			background-color: #fff;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-170px,-270px);
+			-ms-transform: translate(-170px,-270px);
+			-o-transform: translate(-170px,-270px);
+			transform: translate(-170px,-270px);
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+</head>
+<body>
+	<div class="iphone">
+
+	</div>
+	<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+	<script type="text/javascript">
+		var cfg = {
+			type: 'base',
+			text: 'text',
+			width: 100,
+			height: 100
+		};
+
+		var h5 = new H5ComponentBase('myName',cfg );
+		$('.iphone').append(h5);
+	</script>
+</body>
+</html>
+

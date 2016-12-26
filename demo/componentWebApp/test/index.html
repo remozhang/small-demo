@@ -13,12 +13,17 @@
 			padding: 0;
 		}
 
-		.page {
+		.component {
+			display: none;
 			width: 50%;
 			height: 50px;
-			border-bottom: 1px solid #666;
 			background: #fff;
+			color: red;
 		}
+		.page:nth-child(1) .component {
+			display: block;
+		}
+
 	</style>
 </head>
 <body>
@@ -43,17 +48,22 @@
 			$("#h5").fullpage({
 				sectionsColor: ["#564","#000","#561"],
 				"loopBottom": true,
-				// onLeave: function( index, nextIndex, direction ) {
-				// 	debugger;
-				// },
-				// afterLoad: function( index, nextIndex, direction ) {
-				// 	debugger;
-				// }
+				onLeave: function( index, nextIndex, direction ) {
+					$("#h5").find(".page").eq(index-1).trigger("onLeave");
+				},
+				afterLoad: function( anchorLink,index ) {
+					$("#h5").find(".page").eq(index-1).trigger("afterLoad");
+				}
 			});
 			$(".page").on("onLeave",function() {
-				console.log($(this).attr("id"))
+				console.log(this.id+"=>"+"onLeave");
+				$(this).find(".component").fadeOut();
+			});
+			$(".page").on("afterLoad",function() {
+				console.log(this.id+"=>"+"afterLoad");
+				$(this).find(".component").fadeIn();
 			})
-		})
+		});
 	</script>
 </body>
 </html>
