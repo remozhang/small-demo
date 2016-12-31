@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div style="border: 2px dashed #ccc; weidth: 320px;float: left">
+		<label for="name">学生姓名:</label>
+		<input type="text" id="name" name="name"/>
+		<br/>
+		<label for="sex">性别:</label>
+		<input type="text" id="sex" name="sex"/>
+		<br/>
+		<label for="num">学号:</label>
+		<input type="text" id="num" name="num"/>
+		<br/>
+		<label for="add">家庭住址:</label>
+		<input type="text" id="add" name="add"/>
+		<br/>
+		<label for="tel">电话号码:</label>
+		<input type="tel" id="tel" name="tel">
+		<br/>
+		<input type="button" onclick="save()" value="提交信息"/>
+		<hr/>
+		<input type="button" onclick="loadAll()" value="查看所有"/>
+		<hr/>
+		<label for="serch_name">输入姓名:</label>
+		<input type="text" id="search_name" name="search_name">
+		<br/>
+		<input type="button" onclick="search()" value="查询"/>
+		<hr/>
+		<label for="del_name">输入姓名:</label>
+		<input type="text" id="del_name" name="del_name" />
+		<br/>
+		<input type="button" onclick="del()" value="删除"/>
+		<hr/>
+	</div>
+	<br/>
+	<div id="list"></div>
+	<div id="tato"></div>
+	<script type="text/javascript">
+			function save () {
+				var contact = {};
+				var name = document.getElementById("name").value;
+				var sex = document.getElementById("sex").value;
+				var num = document.getElementById("num").value;
+				var add = document.getElementById("add").value;
+				var tel = document.getElementById("tel").value;
+				if (name !== "" && sex !== "" && num !== "" && add !== "" && tel !== "") {
+					contact.name = name;
+					contact.sex = sex;
+					contact.num = num;
+					contact.add = add;
+					contact.tel = tel;
+					var str = JSON.stringify(contact);
+					console.log(str);
+					if (window.localStorage) {
+						localStorage.setItem(contact.name,str);
+						alert("存储成功！");
+					} else {
+						alert("您暂时还无法使用本功能");
+						return;
+					}
+				} else {
+					alert("请输入内容");
+				}
+			}
+
+			function loadAll () {
+				var resource = document.getElementById("list");
+				if (window.localStorage) {
+					var result = '<table border ="1">';
+					result += '<tr><td>姓名</td><td>性别</td><td>学号</td><td>家庭住址</td><td>电话号码</td></tr>';
+					for (var i = 0;i<localStorage.length;i++) {
+						var Name = localStorage.key(i);
+						var str = localStorage.getItem(Name);
+						var contact = JSON.parse(str);
+						result +="<tr><td>"+contact.name+"</td><td>"+contact.sex+"</td><td>"+contact.name+"</td><td>"+contact.add+"</td><td>"+contact.tel+"</td><tr>";
+					}
+					result += "</table>";
+					resource.innerHTML = result;
+				} else {
+					alert("您的浏览器老的掉牙，暂时还无法使用本功能");
+				}
+			}
+
+			function search() {
+				var resource = document.getElementById("list");
+				var search_name = document.getElementById("search_name").value;
+				var result = '<table border="1px"><tr><td>姓名</td><td>性别</td><td>学号</td><td>家庭住址</td><td>电话号码</td></tr>';
+				if(window.localStorage) {
+					var str = localStorage.getItem(search_name);
+					if (str) {
+						var contact = JSON.parse(str);
+						result += "<tr><td>" + contact.name + "</td><td>" + contact.sex + "</td><td>" + contact.num + "</td><td>" + contact.add + "</td><td>" + contact.tel + "</td></tr></table>";
+						resource.innerHTML = result;
+					} else {
+						alert("查无此人");
+						return
+					}
+				} else {
+					alert("您的浏览器老的掉牙，暂时还无法使用本功能");
+				}
+			}
+
+			function del() {
+				var del = document.getElementById("del_name").value;
+				if(localStorage.getItem(del)) {
+					localStorage.removeItem(del);
+					alert(del+"的个人信息删除成功！");
+				} else {
+					alert("根本没有这个人啊，你还想删除他");
+					return;
+				}
+			}
+	</script>
+</body>
+</html>
