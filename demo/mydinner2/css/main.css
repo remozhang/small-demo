@@ -1,0 +1,200 @@
+/*样式重置以及工具函数*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul,li {
+	list-style: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+
+body{
+	background-color: #000;
+}
+
+.warpper {
+	margin: 0 auto;
+	width: 660px;
+	background: #fff;
+}
+
+font {
+	font-family: 'showcard gothic', georgia;
+	font-weight: bold;
+}
+
+input,
+button {
+	outline: none;
+}
+
+input[type="text"],
+input[type="password"] {
+	padding-left: 4px;
+	width: 226px;
+	height: 30px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+input[type="radio"] {
+	width: 65px;
+}
+/*头*/
+.header {
+	width: 100%;
+	border-bottom: 1px dashed #008000;
+	padding-bottom: 10px;
+}
+
+.header-left {
+	float: left;
+}
+
+.header-right {
+	float: right;
+	text-align: right;
+}
+
+.time-box {
+	position: relative;
+	width: 200px;
+	height: 104px;
+	background: url('../img/datetime.jpg')no-repeat;
+}
+
+.time {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+	font-size: 14px;
+}
+
+.count {
+	margin-top: -10px;
+	text-align: center;
+	font-size: 18px;
+}
+
+.slogan {
+	margin-right: 20px;
+}
+.slogan h1{
+	margin-top:20px;
+}
+.slogan p + p{
+	margin-top: 16px;
+}
+
+/*内容部分*/
+.content {
+	padding-top: 40px;
+	width: 100%;
+}
+
+#warn {
+	display: none;
+	text-align: center;
+	margin-bottom: 20px;
+	color: red;
+	font-size: 20px;
+}
+
+.input-group {
+	float: left;
+	min-width: 56%;
+}
+
+.item {
+	text-align: right;
+}
+
+.item + .item {
+	margin-top: 10px;
+}
+
+.item img {
+	position: relative;
+	top:10px;
+}
+
+#verify {
+	width: 150px;
+}
+.button-group {
+	width: 40%;
+	float: right;
+
+}
+
+button {
+	border-radius: 8px;
+	border: none;
+	width: 90px;
+	height: 32px;
+	background: url("../img/button.gif")no-repeat; 
+}
+
+button:hover {
+	background: url("../img/button_hover.gif")no-repeat;
+}
+.operation {
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.remember {
+	width: 200px;
+	margin-left: 20px;
+}
+
+#remember {
+	margin-top: 30px;
+}
+
+.transition {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 660px;
+	height: 12px;
+}
+
+.record-list {
+	width: 100%;
+}
+
+#dev-list,
+#op-list {
+	margin: 10px auto;
+	text-align: center;
+}
+
+#dev-list li,
+#op-list li {
+	margin-top: 10px;
+}
+
+/*页尾*/
+.footer {
+	border-top: 1px solid #000;
+	text-align: center;
+	width: 100%;
+	line-height: 3;
+}
+

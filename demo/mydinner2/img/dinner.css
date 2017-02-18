@@ -1,0 +1,361 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,dt {margin: 0;padding: 0;}
+h1,h2,h3,h4,h5,h6 {
+  font-size: 100%;
+}
+ol, ul, dl {
+  list-style: none;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-family: normal;
+  font-weight: normal;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset, img {
+  border: 0;
+}
+caption, th {
+  text-align: left;
+}
+q:before, q:after {
+  content: '';
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+body {
+  font: 12px/1.6 \5FAE\8F6F\96C5\9ED1, \5B8B\4F53;
+  background-color: #000;
+  margin-bottom: -10px;  
+}
+
+#wrapper {
+  position: relative;
+  width: 660px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+/**********
+#header
+**********/
+#header {
+  position: relative;
+  height: 150px;
+  border-bottom: 1px dotted green;
+}
+#header h1 {
+  position: absolute;
+  font: 32px 宋体;
+  font-weight: bold;
+  top: 10px;
+  right: 20px;
+}
+
+#datetime {
+  float: left;
+  margin: 10px 10px 0 0;
+  position: relative;
+  font-size: 14px;
+  height: 104px;
+  width: 200px;
+  background: url(datetime.jpg) no-repeat left center;
+  text-align: center;
+  line-height: 80px;
+}
+#datetime .time {
+  position: absolute;
+  font-size: 20px;
+  top: 24px;
+  right: 64px;
+}
+
+/**********
+
+**********/
+.notice {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  text-align: right;
+  font-size: 14px;
+  line-height: 1;
+  padding-right: 10px;
+}
+.notice .time {
+  font: 1.4em 'Showcard Gothic';
+  font-weight: bold;
+  color: #f00;
+  padding: 0 4px;
+}
+
+.notice strong {
+  font: 1.2em 黑体;
+  font-weight: bold;
+  color: #f00;
+}
+
+#content {
+
+}
+
+#record-list {
+  margin: 40px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+
+/*****
+
+*****/
+#dinnerForm {
+  position: relative;
+  background: url(form_bottom.gif) no-repeat left bottom;
+  padding-bottom: 28px;
+}
+input.text {
+  border: 1px solid #708090;
+  background: url(inputshadow.gif) no-repeat left top;
+  width: 220px;
+  height: 22px;
+  padding: 2px 0;
+  font-family: \5FAE\8F6F\96C5\9ED1, \5B8B\4F53;
+  padding-left: 2px;
+}
+
+.msg {
+  height: 30px;
+  text-align: center;
+  padding: 4px 0;
+  margin: 10px 0;
+  padding: 0;
+  line-height: 30px;
+}
+.msg p {
+  background-color: #ffc;
+  font-size: 16px;
+  font-weight: bold;
+  color: red;
+  margin: 0;
+  padding: 0;
+}
+.button {
+  display: inline;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: \5FAE\8F6F\96C5\9ED1, \5B8B\4F53;
+  border: none;
+  width: 90px;
+  height: 32px;
+  background: url(button.gif) no-repeat left top;
+  margin-bottom: 4px;
+}
+.button:hover {
+  background: url(button_hover.gif) no-repeat left center;
+}
+p.button {
+  position: absolute;
+  top: -12px;
+  right: 200px;
+}
+p.input label {
+  float: left;
+  font-size: 16px;
+  width: 120px;
+  text-align: right;
+  letter-spacing: 6px;
+  margin-right: 10px;
+}
+.tool {
+  position: absolute;
+  right: 130px;
+  top: 20px;
+  font-size: 12px;
+}
+.tool a {
+  display: block;
+}
+
+.batch {
+  position: absolute;
+  display: none;
+}
+.batch input {
+  background: url(batch.gif) no-repeat left top;
+  width: 100px;
+  height: 43px;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: \5FAE\8F6F\96C5\9ED1, \5B8B\4F53;
+  color: #fff;
+}
+.batch input:hover {
+  color: purple;
+}
+
+#validateBox {
+  width: 200px;
+  height: 100px;
+  border: 2px solid purple;
+  background-color: chocolate;
+  -moz-border-radius: 8px 8px 8px;
+  position: absolute;
+}
+
+/**
+#dialog
+**/
+#dialog {
+  display: none;
+}
+.ui-dialog {
+  border: 1px solid green;
+  -moz-border-radius: 4px 4px 4px;
+  padding: 2px 4px;
+  background-color: #fff;
+}
+
+.ui-dialog-titlebar {
+  width: 100%;
+  height: 30px;
+  background: orange;
+  -moz-border-radius: 6px 6px 6px;
+  cursor: move;
+}
+.ui-dialog-title {
+  font-size: 12px; 
+  line-height: 30px;
+  padding-left: 6px;
+}
+.ui-icon {
+  float: right;
+  padding: 4px 8px 0 0;
+}
+.ui-icon:hover {
+  color: red;
+}
+
+.dialog ul {
+  clear: both;
+  margin-top: 10px;
+  height: 30px;  
+}
+
+
+.dialog li {
+  display: inline;
+  margin: 0 12px;
+}
+
+/*********
+#record-list
+**********/
+#record-list {
+  text-align: center;
+}
+#record-list h2 {
+  font: 18px 隶书, \4EFF\5B8B;
+  position: absolute;
+  top: 92px;
+  left: 34px;
+  letter-spacing: -0.4px;
+}
+#record-list h2 .count {
+  font-size: 50px;
+}
+#record-list .count {
+  font: 1.6em 'showcard gothic', georgia;
+  padding: 0 4px;
+  color: green;
+}
+#record-list dl {
+  margin-bottom: 24px;
+  padding-bottom: 34px;
+  background: url(leaf.gif) no-repeat center bottom;
+}
+#record-list dt {
+  font-size: 16px;
+  letter-spacing: 0.8px;
+}
+#record-list dd {
+  padding: 2px 0;
+}
+
+#footer {
+  border-top: 1px solid #000;
+  text-align: center;
+  padding: 14px 0;
+  /* background: url(copyright.gif) no-repeat right bottom; */
+}
+
+/*************************************
+#get-validate-form
+**************************************/
+#get-validate-form {
+  display: none;
+  text-align: center;
+}
+#get-validate-form label {
+  display: block;
+  font-size: 16px;
+  text-align: left;
+  text-indent: 32px;
+  letter-spacing: 6px;
+  margin-bottom: -10px;
+}
+#get-validate-form input.text {
+  width: 160px;
+}
+#get-validate-form .result em {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/**********************
+#add-user-form
+**********************/
+p.radio label {
+  float: left;
+  font-size: 16px;
+  width: 120px;
+  text-align: right;
+  letter-spacing: 6px;
+  margin-right: 10px;
+}
+
+.warn {
+  font-size: 28px;
+  text-align: center;
+  color: red;
+}
+.invalidate-time {
+  margin-top: 40px;
+}
+
+#add_user .error {
+  text-align: center;
+  color: red;
+  font-size: 14px;
+}
+#add_user .add_user_form {
+  width: 400px;
+  margin: 0 auto;
+}
+#add_user .add_user_form .submit {
+  margin-left: 140px;
+}
+#add_user .error em {
+  font-weight: bold;
+  font-size: 16px;
+}
